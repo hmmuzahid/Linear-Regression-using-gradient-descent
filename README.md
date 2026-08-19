@@ -1,4 +1,4 @@
-##Linear Regression from Scratch
+## Linear Regression from Scratch
 
 A linear regression implementation from scratch in Python using a custom gradient-descent optimization algorithm.
 
@@ -6,7 +6,7 @@ The project does not use an existing linear regression solver. Instead, the grad
 
 It also uses "mat_opr_python", a custom array backend implemented separately from scratch in Python.
 
-##Gradient Descent
+## Gradient Descent
 
 For linear regression, the prediction is:
 
@@ -22,7 +22,7 @@ gradient = Xᵀ(Xw - y) / m
 
 The weights are then updated iteratively using the calculated gradient.
 
-##Adaptive Learning Rate
+## Adaptive Learning Rate
 
 Instead of using one fixed learning rate, this implementation maintains a separate learning rate for each weight.
 
@@ -32,7 +32,7 @@ When the sign of a gradient changes, the corresponding parameter is considered t
 
 This allows different weights to use different learning rates.
 
-##Feature and Target Normalization
+## Feature and Target Normalization
 
 Before optimization, each feature is centered and divided by its standard deviation:
 
@@ -44,7 +44,7 @@ Normalization puts the variables on comparable scales and makes the gradient-bas
 
 After convergence, the weights are converted back to the original feature scale and the intercept is restored.
 
-##L2 Regularization
+## L2 Regularization
 
 The implementation also supports optional L2 regularization through the "lambda_" parameter.
 
@@ -60,7 +60,7 @@ lambda_ = 0
 
 the model performs ordinary linear regression without regularization.
 
-##Custom Array Backend
+## Custom Array Backend
 
 The model uses "mat_opr_python" as its array backend.
 
@@ -79,7 +79,7 @@ The model uses "mat_opr_python" as its array backend.
 
 The backend uses Python lists for underlying storage and implements the array operations itself rather than relying on NumPy's linear algebra routines.
 
-##Comparison with Scikit-learn
+## Comparison with Scikit-learn
 
 The example compares the custom implementation with "sklearn.linear_model.LinearRegression" using the same dataset.
 
@@ -91,7 +91,7 @@ custom_model.fit(array(x_train), array(y_train))
 
 The predictions from both models can then be compared to verify the implementation.
 
-##Dataset
+## Dataset
 
 The repository contains "train-test.npz", a synthetic regression dataset used for testing.
 
@@ -104,7 +104,7 @@ y_test:  (300,)
 
 The dataset also contains several outliers to test how the model behaves with less ideal data.
 
-##Requirements
+## Requirements
 
 - Python
 - NumPy

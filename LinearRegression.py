@@ -10,7 +10,7 @@ class LinearRegression:
     self.lambda_ = lambda_
   
   #Create a method to fit the linear regression model
-  def fit(self, x, y, obj=obj):
+  def fit(self, x, y, obj=obj, max_iter=500):
     m, n = x.shape
     y = y.reshape(-1, 1)
     
@@ -45,7 +45,7 @@ class LinearRegression:
     
     #Keep track of the previous derivative(s) to compare it with the new one(s)
     old_grd = None
-    while True:
+    for _ in range(max_iter):
       #Calculate new gradient
       tmp = x @ w - y
       new_grd = obj.array((x.T @ tmp)/m) + (self.lambda_/m)*w
@@ -101,7 +101,7 @@ if __name__=="__main__":
   custom_pred = custom_model.predict(array(x_test))
   
   print("sklearn      custom")
-  for sk, cu in zip(custom_pred[:20], sk_pred[:20]):
+  for cu, sk in zip(custom_pred[:20], sk_pred[:20]):
     print(sk, cu)
   
   
